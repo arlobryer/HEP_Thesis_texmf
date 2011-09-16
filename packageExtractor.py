@@ -24,9 +24,10 @@ for line in log_file.readlines():
 
 # print packages
 
-out_packs = [pack for pack in packages if (pack.split('.')[-1]=='cls' or pack.split('.')[-1]=='sty')]
-
-# print out_packs
+out_packs = [pack for pack in packages if (pack.split('.')[-1]=='cls' or pack.split('.')[-1]=='sty' or pack.split('.')[-1]=='def')]
+print '*'*20
+print out_packs
+print '*'*20
 pack_files=[]
 for p in out_packs:
     proc = sub.Popen(['kpsewhich', p], stdout=sub.PIPE, stderr=sub.PIPE)
@@ -37,7 +38,8 @@ print pack_files
 rsync = raw_input('rsync these files to current directory(y/n)? ')
 if rsync == 'y':
     for p in pack_files:
-        sub.call(['rsync', '--progress' ,'-v',p,'.'])
+        sub.call(['rsync','--progress' ,'-v',p,'.'])
 
 
 print 'Done.'
+
