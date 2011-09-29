@@ -1,7 +1,9 @@
 #!/usr/bin/env python
 
+
 '''A small script designed to help keep track of which packages are
-being used in a LaTex project - AGB 16/09/11'''
+being used in a LaTex project. This parses the output log file (run with \listfiles in the main .tex file)
+for any packages and class files you may be using. - AGB 16/09/11'''
 
 import sys, subprocess as sub
 
